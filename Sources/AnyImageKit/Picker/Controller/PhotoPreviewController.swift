@@ -244,6 +244,7 @@ extension PhotoPreviewController {
         view.addSubview(indexView)
         setupLayout()
         setBar(hidden: true, animated: false, isNormal: false)
+        navigationBar.selectButton.isUserInteractionEnabled = manager.previewAll
     }
     
     /// 设置视图布局
@@ -353,6 +354,13 @@ extension PhotoPreviewController {
     
     /// NavigationBar - Back
     @objc private func backButtonTapped(_ sender: UIButton) {
+        var index = self.currentIndex
+        if !manager.previewAll {
+            index = manager.selectedAssets[self.currentIndex].idx
+        }
+        manager.previewAll = true
+        collectionView.reloadData()
+        self.currentIndex = index
         delegate?.previewControllerWillDisappear(self)
         dismiss(animated: true, completion: nil)
         setStatusBar(hidden: false)

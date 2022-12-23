@@ -61,6 +61,8 @@ public struct PickerOptionsInfo {
     /// - Default: []
     public var preselectAssets: [String] = []
     
+    public var previewAll = false
+    
     /// Disable Rules
     /// - Default: []
     public var disableRules: [AssetDisableCheckRule] = []

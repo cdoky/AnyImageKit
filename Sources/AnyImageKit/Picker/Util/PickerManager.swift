@@ -25,6 +25,8 @@ final class PickerManager {
     
     var useOriginalImage: Bool = false
     
+    var previewAll = true
+    
     /// 已选中的资源
     private(set) var selectedAssets: [Asset] = []
     /// 获取失败的资源
